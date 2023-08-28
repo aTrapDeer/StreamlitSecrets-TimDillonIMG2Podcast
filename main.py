@@ -14,8 +14,8 @@ import os
 #load_dotenv(find_dotenv())
 
 # Set API Key For Gpt-3 and Hugging Face using st.secrets
-OpenAIKey = st.secrets("OPENAI_API_KEY")
-HuggingFaceKey = st.secrets("HUGGINGFACE_API_KEY")
+OpenAIKey = st.secrets["OPENAI_API_KEY"]
+HuggingFaceKey = st.secrets["HUGGINGFACE_API_KEY"]
 
 def img2text(url):
     image_to_text = pipeline("image-to-text", model="Salesforce/blip-image-captioning-large")
@@ -45,7 +45,7 @@ def textToSpeech(story):
         print("Error fetching available voices:", e)
 
     # Set API key for ElevenLabs
-    set_api_key = st.secrets("ELEVENLABS_API_KEY")
+    set_api_key = st.secrets["ELEVENLABS_API_KEY"]
     user = ElevenLabsUser(set_api_key)
     voice = user.get_voice_by_ID("cgOzEASJmlEWHtXnZJ5q")
 
